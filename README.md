@@ -70,7 +70,8 @@ RISC-V Instruction Set Architecture (ISA) is a language used to talk to computer
 #### Components of opensource digital ASIC design
 The Application Specific Integrated Circuit (ASIC) requires three enablers or elements - Resistor Transistor Logic Intellectual Property (RTL IPs), Electronic Design Automation (EDA) Tools and Process Design Kit (PDK) data.
 
-![Screenshot 2023-05-31 164033](https://github.com/Magalakshmi89/Sky-130-PD-Workshop--VSD-Tapeout-Program/assets/135096629/d9e6d284-c451-4f91-be64-a44a5052480e)
+![Screenshot 2023-05-31 164033](https://github.com/Magalakshmi89/update/assets/135096629/f216ff83-72b0-4011-ab9a-a307ce146eb4)
+
 
 - Opensource RTL Designs: github, librecores, opencores
 - Opensource EDA tools: QFlow, OpenROAD, OpenLANE
@@ -80,7 +81,7 @@ The ASIC flow objective is to convert RTL design to GDSII format.
 
 #### Simplified RTL2GDS Flow
 
-![Screenshot 2023-05-31 165557](https://github.com/Magalakshmi89/Sky-130-PD-Workshop--VSD-Tapeout-Program/assets/135096629/7a8d6f60-712e-4068-9923-100fb08aab23)
+![Screenshot 2023-05-31 165557](https://github.com/Magalakshmi89/update/assets/135096629/89af795f-ed9a-4ef3-95a8-ecb39668acb2)
 
 - Synthesis: RTL Converted to gate level netlist using standard cell libraries (SCL).
 - Floor & Power Planning:Planning defines the size of the chip/block,preplacing Hard Macros and thereby detemining the routing areas between   them.Power Planning provide power ti evary Macros,standard cells.It connects Power to chip by considering isssues like EM and IR Drop.
@@ -212,10 +213,10 @@ package require openlane 0.9
 ```
 prep -design picorv32a
 ```
-![Screenshot 2023-05-31 135059](https://github.com/Magalakshmi89/Sky-130-PD-Workshop--VSD-Tapeout-Program/assets/135096629/8c82a609-5a69-4aa7-abab-a5c8605d4783)
 
+![Screenshot 2023-05-31 135059](https://github.com/Magalakshmi89/update/assets/135096629/78b63cea-0da9-4676-8fab-1f5ba60288d9)
 
-![Screenshot 2023-05-31 232255](https://github.com/Magalakshmi89/Sky-130-PD-Workshop--VSD-Tapeout-Program/assets/135096629/93f2a8b2-86c0-4ed1-8158-d1eaca9efe54)
+![Screenshot 2023-05-31 232255](https://github.com/Magalakshmi89/update/assets/135096629/b77d7853-85b9-400f-9019-31200973e452)
 
 #### Review of files & Synthesis step
 * A "runs" folder is generated within the picorv32a folder.
@@ -224,8 +225,7 @@ prep -design picorv32a
 
 `run_synthesis`
 
-
-![Screenshot 2023-05-31 234758](https://github.com/Magalakshmi89/Sky-130-PD-Workshop--VSD-Tapeout-Program/assets/135096629/75ec70a2-a8c9-4185-bd76-25bce7690f6e)
+![Screenshot 2023-05-31 234758](https://github.com/Magalakshmi89/update/assets/135096629/979fff60-24da-41c3-a98c-0c97d8fef679)
 
 * The yosys and ABC tools are utilised to convert RTL to gate level netlist.
 * Calcuation of Flop Ratio:
@@ -244,12 +244,11 @@ Flop ratio = 1613/14876 = 0.1084 = 10.84%
 * The synthesis statistics report can be accessed within the reports directory. It is usually the last yosys file since files are listed chronologically by date of modification.
 * The synthesis timings report are as follows:
 
-![Screenshot 2023-06-01 140815](https://github.com/Magalakshmi89/Sky-130-PD-Workshop--VSD-Tapeout-Program/assets/135096629/4807dbfb-f12e-4fe1-8b4f-82bd0c2f84b4)
+![Screenshot 2023-06-01 140815](https://github.com/Magalakshmi89/update/assets/135096629/e0957811-c12f-41a7-a4ee-9fec4fdfc66f)
 
 * The synthesis statistics report is as follows:
 
-![Screenshot 2023-06-01 140458](https://github.com/Magalakshmi89/Sky-130-PD-Workshop--VSD-Tapeout-Program/assets/135096629/5d1a8ff6-abf3-4636-8cd3-adbc30ad5771)
-
+![Screenshot 2023-06-01 140458](https://github.com/Magalakshmi89/update/assets/135096629/298d65fd-17f2-4804-8780-88fb9752cb9d)
 
 ## Floorplanning & Placement and library cells
 
@@ -277,12 +276,11 @@ A Utilisation Factor of 1 signifies 100% utilisation leaving no space for extra 
 
 Once the Utilisation Factor and Aspect Ratio has been decided, the locations of pre-placed cells need to be defined. Pre-placed cells are IPs comprising large combinational logic which once placed maintain a fixed position. Since they are placed before placement and routing, the are known as pre-placed cells.
 
-![Screenshot 2023-06-01 144634](https://github.com/Magalakshmi89/Sky-130-PD-Workshop--VSD-Tapeout-Program/assets/135096629/410d3471-7ec5-4d35-abae-93f5cb06c230)
+![Screenshot 2023-06-01 144634](https://github.com/Magalakshmi89/update/assets/135096629/b9361550-2425-4286-955b-e1c725d43e8c)
 
 #### Decoupling capacitors
 
-![capacitor](https://github.com/Magalakshmi89/Sky-130-PD-Workshop--VSD-Tapeout-Program/assets/135096629/0a412ae6-6028-409c-847e-951a53eebffb)
-
+![capacitor](https://github.com/Magalakshmi89/update/assets/135096629/3b2b5157-93ba-4142-8e10-fd2664d5ded0)
 
 Pre-placed cells must then be surrounded with decoupling capacitors (decaps). Its is capacitor in which is used to decouple critical cells from main power supply in order to protect from disturbance in the power distribution lines.Decaps are huge capacitors charged to power supply voltage and placed close the logic circuit. Their role is to decouple the circuit from power supply by supplying the necessary amount of current to the circuit. They pervent crosstalk and enable local communication.
 
@@ -290,7 +288,7 @@ Pre-placed cells must then be surrounded with decoupling capacitors (decaps). It
 
 Each block on the chip, however, cannot have its own decap unlike the pre-placed macros. Therefore, a good power planning ensures that each block has its own VDD and VSS pads connected to the horizontal and vertical power and GND lines which form a power mesh.
 
-![power](https://github.com/Magalakshmi89/Sky-130-PD-Workshop--VSD-Tapeout-Program/assets/135096629/949f330e-f2f8-45f1-be37-f50945c5445c)
+![power](https://github.com/Magalakshmi89/update/assets/135096629/0f43cf42-1aef-443e-82d8-0d51e63d27d7)
 
 
 #### Pin Placement
@@ -314,17 +312,13 @@ To view the floorplan, Magic is invoked after moving to the ```results/floorplan
 ```
 magic -T /home/devipriya/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.min.lef def read picorv32a.def &
 ```
+![Screenshot 2023-06-02 112011](https://github.com/Magalakshmi89/update/assets/135096629/a108632a-6bd7-486f-94e6-b098d486cf9a)
 
-![Screenshot 2023-06-02 112011](https://github.com/Magalakshmi89/Sky-130-PD-Workshop--VSD-Tapeout-Program/assets/135096629/fe6eb0b7-be51-480b-95ef-fd96b57c5893)
+ ![Screenshot 2023-06-02 112052](https://github.com/Magalakshmi89/update/assets/135096629/b1bdd222-b260-44b7-bae2-07b46b5c8715)
 
+  ![Screenshot 2023-06-02 112146](https://github.com/Magalakshmi89/update/assets/135096629/8a51d94d-c44b-445a-bc2e-3e4060336179)
 
- ![Screenshot 2023-06-02 112052](https://github.com/Magalakshmi89/Sky-130-PD-Workshop--VSD-Tapeout-Program/assets/135096629/b7642452-e897-4efc-9d35-b162420a7248)
- 
- 
- ![Screenshot 2023-06-02 112146](https://github.com/Magalakshmi89/Sky-130-PD-Workshop--VSD-Tapeout-Program/assets/135096629/f3edc3b5-ec5f-4c41-be37-fdb110c026ea)
- 
-
-![Screenshot 2023-06-02 112324](https://github.com/Magalakshmi89/Sky-130-PD-Workshop--VSD-Tapeout-Program/assets/135096629/c16098ab-d397-416c-ae87-0c057c31c403)
+![Screenshot 2023-06-02 112324](https://github.com/Magalakshmi89/update/assets/135096629/2ad7cf00-bb4e-42d6-96e6-e3303d5da138)
 
 * One can zoom into Magic layout by selecting an area with left and right mouse click followed by pressing "z" key. 
 * Various components can be identified by using the ```what``` command in tkcon window after making a selection on the component.
@@ -360,11 +354,11 @@ magic -T /home/devipriya/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech lef 
 
 ```
 
-![Screenshot 2023-06-02 125604](https://github.com/Magalakshmi89/Sky-130-PD-Workshop--VSD-Tapeout-Program/assets/135096629/5c018148-6026-4beb-99da-f3dede7d5f36)
+![Screenshot 2023-06-02 125604](https://github.com/Magalakshmi89/update/assets/135096629/5e7baece-3133-4a51-a791-473e1e58d510)
 
 Zoomed-in views of the standard cell placement:
 
-![Screenshot 2023-06-02 125645](https://github.com/Magalakshmi89/Sky-130-PD-Workshop--VSD-Tapeout-Program/assets/135096629/03101aa0-2efd-479a-be63-3e2c51771c63)
+![Screenshot 2023-06-02 125645](https://github.com/Magalakshmi89/update/assets/135096629/8414fb6a-58ec-4b8f-9c73-a1b8e31bb61f)
 
 
 ***Note: Power distribution network generation is usually a part of the floorplan step. However, in the openLANE flow, floorplan does not generate PDN. The steps are - floorplan, placement CTS and then PDN***
@@ -372,7 +366,7 @@ Zoomed-in views of the standard cell placement:
 
 ### Standard Cell Design Flow
 
-![Screenshot 2023-06-02 133703](https://github.com/Magalakshmi89/Sky-130-PD-Workshop--VSD-Tapeout-Program/assets/135096629/48f81cd7-702b-4115-90a3-dbc32f5e3efe)
+![Screenshot 2023-06-02 133703](https://github.com/Magalakshmi89/update/assets/135096629/726c0773-10d3-4b92-918f-bd5ff8ba792d)
 
 Standard cell design flow involves the following:
 
@@ -397,8 +391,7 @@ The opensource software called GUNA can be used for characterization. Steps 1-8 
 
 ### Timing Parameter Definitions
 
-
-![Screenshot 2023-06-02 190500](https://github.com/Magalakshmi89/Sky-130-PD-Workshop--VSD-Tapeout-Program/assets/135096629/9f8f13d6-f26c-47d5-b208-3f872cbdd0a0)
+![Screenshot 2023-06-02 190500](https://github.com/Magalakshmi89/update/assets/135096629/c520b997-e606-4ea2-bbba-96dbca226b59)
 
 Timing defintion | Value
 ------------ | -------------

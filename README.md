@@ -62,7 +62,7 @@ This project is done in the course ["Physical Design using OpenLANE/Sky130"](htt
 
 RISC-V Instruction Set Architecture (ISA) is a language used to talk to computers. If a user wishes to run a certain application software on a computer, its corresponding C/C++/Java program must be converted into instructions by the compliler. The ouput of the compiler is hardware dependent. These instructions go as inputs to the assembler which outputs binary language that the hardware logic in the chip layout can make sense of. According to the bits received, the digital logic consisting of gates performs the function required by the user of the application software.From the user to RISC-V to implenmentation and finally to Layout.
 
-![compiler](https://github.com/Magalakshmi89/Sky-130-PD-Workshop--VSD-Tapeout-Program/assets/135096629/82be2e9d-7b6f-4c50-b1c0-9133a3a000fc)
+![compiler](https://github.com/Magalakshmi89/update/assets/135096629/7166f555-849a-4d3a-bd39-63e209069ff9)
 
 
 ### SoC Design & OpenLANE

@@ -622,25 +622,15 @@ This generates ```sky130_vsdinv.lef``` file.
 ![Screenshot 2023-06-06 113913](https://github.com/Magalakshmi89/update/assets/135096629/5730f2fa-1b4b-4617-914b-124b3fb75759)
 
 ![Image](https://github.com/srsapireddy/Images/blob/main/179.png?raw=true) </br>
+
 * Considering poly.9
 * Poly resistor spacing to poly or spacing (no overlap) to diff/tap 0.480 µm
+* 
 * Reference: https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html#poly
 ![Screenshot 2023-06-06 122733](https://github.com/Magalakshmi89/update/assets/135096629/3cffd651-0f20-41ae-97ae-6a974f0c68b5)
 
 ![Image](https://github.com/srsapireddy/Images/blob/main/181.png?raw=true) </br>
-* Checking rule violation
 
-![Image](https://github.com/srsapireddy/Images/blob/main/182.png?raw=true) </br>
-![Image](https://github.com/srsapireddy/Images/blob/main/183.png?raw=true) </br>
-* DRC section starts on 4072 line
-![Image](https://github.com/srsapireddy/Images/blob/main/184.png?raw=true) </br>
-* Search for poly rules </br>
-![Image](https://github.com/srsapireddy/Images/blob/main/185.png?raw=true) </br>
-* Adding spacing to add whats missing in the file
-* Changing all the contact rules pertaining to poly
-![Image](https://github.com/srsapireddy/Images/blob/main/186.png?raw=true) </br>
-![Image](https://github.com/srsapireddy/Images/blob/main/187.png?raw=true) </br>
-![Image](https://github.com/srsapireddy/Images/blob/main/188.png?raw=true) </br>
 
 ## Lab steps to convert grid info to track information
 * Open inverter mag file </br>
@@ -661,36 +651,17 @@ This generates ```sky130_vsdinv.lef``` file.
 * The width of the standard cell should be in the odd multiples of the X-pitch.
 * Port information is required only when we need to extract the LEF file. When we extract the LEF file, these ports are defined as pins of the macro.
 * Converting labels to ports:
-![Image](https://github.com/srsapireddy/Images/blob/main/193.png?raw=true) </br>
 * How does the tool know A is input and Y is an output port?
 * We use port class and port use attributes.
 * Once these parameters are set, we can extract the LEF file from a cell/ macro.
-* Before extracting the LEF, we need to give the cell a custom name.
-![Image](https://github.com/srsapireddy/Images/blob/main/194.png?raw=true) </br>
-![Image](https://github.com/srsapireddy/Images/blob/main/195.png?raw=true) </br>
- 
+* Before extracting the LEF, we need to give the cell a custom name
 * Creating a LEF file </br>
-![Image](https://github.com/srsapireddy/Images/blob/main/196.png?raw=true) </br>
-![Image](https://github.com/srsapireddy/Images/blob/main/197.png?raw=true) </br>
 
 ### Plugging this LEF file into PICORV32A – move the LEF file into src folder
-![Image](https://github.com/srsapireddy/Images/blob/main/198.png?raw=true) </br>
-* We need to have a library which has our cell definition for synthesis.
-* Here the tool should map vsdinverter cell to the synthesis flow.
-![Image](https://github.com/srsapireddy/Images/blob/main/199.png?raw=true) </br>
-![Image](https://github.com/srsapireddy/Images/blob/main/200.png?raw=true) </br>
-
-* We need to modify our config.tcl file next.
-![Image](https://github.com/srsapireddy/Images/blob/main/201.png?raw=true) </br>
-* Run openlane flow
-![Image](https://github.com/srsapireddy/Images/blob/main/202.png?raw=true) </br>
-
-* Then `run_synthesis`
-![Image](https://github.com/srsapireddy/Images/blob/main/203.png?raw=true) </br>
-* We can see that 1554 instances of our custom cell is added to the picorv32a design.
-
-
-
+ We need to have a library which has our cell definition for synthesis.
+Here the tool should map vsdinverter cell to the synthesis flow. We need to modify our config.tcl file next.
+                     Then `run_synthesis`
+We can see that 1554 instances of our custom cell is added to the picorv32a design.
 
 
 ### Integrating custom cell in OpenLANE

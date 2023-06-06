@@ -719,7 +719,7 @@ The lef file generated:
 ![5  generated lef file](https://user-images.githubusercontent.com/83152452/185791680-36453e1a-5b7b-44e4-866f-4d0be2e63b8e.png)
 
 ```
-### Fixing Slack
+## Fixing Slack
 SYNTH_BUFFERING: Find any high fanout nets. We want high fanout nets to be buffers.
 SYNTH_SIZING: Upsizing or downsizing a buffer based on delay strategy.
 SYNTH_DRIVING_CELL: Cell that drives the input port. </br>
@@ -753,7 +753,7 @@ my_base.sdc file </br>
 PATH:   </br>
 ![Image](https://github.com/srsapireddy/Images/blob/main/304.png?raw=true) </br>
 
-### Optimize synthesis to reduce setup violations
+## Optimize synthesis to reduce setup violations
 * Hold analysis have significance after CTS.
 * The delay of any cell is a function of input slew (input transition) and output load. More the values, more the delay.
 * Optimizing the fanout value:
@@ -769,7 +769,7 @@ PATH:   </br>
 `report_tns` </br>
 `report_worst_slack -max` </br>
 `write_verilog designs/picorv32a/runs/date/results/synthesis/picorv32.v` </br>
-### Analyze timing with a real clock using OpenSTA
+## Analyze timing with a real clock using OpenSTA
 * Run `openroad` to do timing analysis. OpenSTA is integrated inside the openroad.
 * Here we need to read lef and def files to create db.
 ![Image](https://github.com/srsapireddy/Images/blob/main/235.png?raw=true) </br>
@@ -785,7 +785,7 @@ PATH:   </br>
 ![Image](https://github.com/srsapireddy/Images/blob/main/240.png?raw=true) </br>
 * Read sdc file </br>
 ![Image](https://github.com/srsapireddy/Images/blob/main/241.png?raw=true) </br>
-### SDC FILE UPDATED
+## SDC FILE UPDATED
 ![Image](https://github.com/srsapireddy/Images/blob/main/242.png?raw=true) </br>
 * PATH: picorv32a/src/my_base.sdc
 * To calculate actual cell delay in clock path:
@@ -807,7 +807,7 @@ PATH:   </br>
 * Both are met.
 
 
-### Clock Tree Synthesis
+## Clock Tree Synthesis
 
 The purpose of building a clock tree is enable the clock input to reach every element and to ensure a zero clock skew. H-tree is a common methodology followed in CTS.
 Before attempting a CTS run in TritonCTS tool, if the slack was attempted to be reduced in previous run, the netlist may have gotten modified by cell replacement techniques. Therefore, the verilog file needs to be modified using the ```write_verilog``` command. Then, the synthesis, floorplan and placement is run again. To run CTS use the below command:

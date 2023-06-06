@@ -621,15 +621,11 @@ This generates ```sky130_vsdinv.lef``` file.
 
 ![Screenshot 2023-06-06 113913](https://github.com/Magalakshmi89/update/assets/135096629/5730f2fa-1b4b-4617-914b-124b3fb75759)
 
-![Image](https://github.com/srsapireddy/Images/blob/main/179.png?raw=true) </br>
-
 * Considering poly.9
 * Poly resistor spacing to poly or spacing (no overlap) to diff/tap 0.480 µm
-* 
+
 * Reference: https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html#poly
 ![Screenshot 2023-06-06 122733](https://github.com/Magalakshmi89/update/assets/135096629/3cffd651-0f20-41ae-97ae-6a974f0c68b5)
-
-![Image](https://github.com/srsapireddy/Images/blob/main/181.png?raw=true) </br>
 
 
 ## Lab steps to convert grid info to track information
@@ -640,8 +636,6 @@ This generates ```sky130_vsdinv.lef``` file.
 1.The input port and output port must lie on the vertical and horizontal tracks.
 2.Width of the standard cell must be in odd multiples of the track pitch.
 3.Height should be in the order of vertical pitch.
-
-![Image](https://github.com/srsapireddy/Images/blob/main/190.png?raw=true) </br>
 * Press g to get the grid view.
 ![Screenshot 2023-06-06 122733](https://github.com/Magalakshmi89/update/assets/135096629/2150a1b2-6595-4ef5-8f6b-ea4eb7472e77)
 
@@ -688,6 +682,7 @@ set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
 add_lefs -src $lefs
 run_synthesis
 ```
+![Screenshot 2023-06-06 144703](https://github.com/Magalakshmi89/update/assets/135096629/f04c7e9b-d0ff-40b2-8f79-921c2975b317)
 
 Next floorplan is run, followed by placement:
 

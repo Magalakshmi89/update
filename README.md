@@ -718,8 +718,8 @@ The lef file generated:
 
 ![5  generated lef file](https://user-images.githubusercontent.com/83152452/185791680-36453e1a-5b7b-44e4-866f-4d0be2e63b8e.png)
 
-```
-## Fixing Slack
+
+#### Fixing Slack
 SYNTH_BUFFERING: Find any high fanout nets. We want high fanout nets to be buffers.
 SYNTH_SIZING: Upsizing or downsizing a buffer based on delay strategy.
 SYNTH_DRIVING_CELL: Cell that drives the input port. </br>
